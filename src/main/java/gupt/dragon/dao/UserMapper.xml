@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="gupt.dragon.dao.UserMapper">
+	
+	<select id="retrieveUserByUserId" parameterType="String" resultType="User">
+		select JobNumber,Password from user where JobNumber = #{jobNumber};
+	</select>
+	
+	<select id="retrievePowerByJobNumber" parameterType="String" resultType="String">
+		select Power from user where JobNumber = #{jobNumber};
+	</select>
+	
+	<update id="updateUser" parameterType="User">
+		update user set Password = #{password} where JobNumber = #{jobNumber};
+	</update>
+	
+	<update id="resetUserPassword" parameterType="User">
+		update user set Password = #{password} where JobNumber = #{jobNumber};
+	</update>
+  
+</mapper>

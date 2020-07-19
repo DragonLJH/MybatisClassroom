@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+		<script src="jquery/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="fa47/css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+		<link rel="icon" href="img/icon-logo.jpg">
+		<!-- <script src="js/vue.js" type="text/javascript" charset="utf-8"></script> -->
+		<title>课室预定系统</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="top row">
+				<div class="col-md-1 col-xs-1"></div>
+				<div class="col-md-12 col-xs-6">
+					<h1>UPCOMING 登录</h1></div>
+				<div class="col-md-offset-8 col-md-4 col-xs-6">
+					<h4>WELCOME TO UPCOMING</h4></div>
+			</div>
+			<div>
+				<hr />
+			</div>
+			<div class="contant row">
+			<form class="form-horizontal" action="login" method="post" id="login">
+				<div class="float col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6">
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active " id="Login">
+							<div class="loginTitle row">
+								<div class="title col-md-offset-4 col-xs-offset-4">
+									<h2>UPCOMING 登录</h2>
+								</div>
+								
+									<div class="form-group row" style=" margin-bottom: 30px;">
+										<label for="input-login" class="col-md-offset-2 col-md-1 control-label glyphicon glyphicon-user"></label>
+										<div class="col-md-7">
+											<input type="text" class="form-control " name="id" id="id" placeholder="学号/工号">
+										</div>
+									</div>
+									<div id="eyes-closed" class="form-group row" style=" margin-bottom: 30px;">
+										<label for="inputPassword" class="col-md-offset-2 col-md-1 control-label glyphicon glyphicon-home"></label>
+										<div class="col-md-7">
+											<input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password">
+										</div>
+									</div>
+									<!-- <div id="" class="form-group row" style=" margin-bottom: 30px;">
+										<div class="col-md-offset-8">
+											<label for="forget" class="fa fa-question-circle"></label>
+											<a href="FindPassword.html" id="forget">忘记密码</a>
+										</div>
+									</div> -->
+								
+							</div>
+						</div>
+						
+					</div>
+					<div class="form-group row">
+						<div class="col-md-offset-2  col-md-3">
+							<div class="row">
+								<input class="btn btn-primary col-md-12" type="submit" value="登录"></input>
+							</div>
+
+						</div>
+						<div class="col-md-offset-2 col-md-3">
+							<div class="row">
+								<input class="btn btn-primary col-md-12" type="reset" value="取消"></input>
+							</div>
+
+						</div>
+					</div>
+					
+				</div>
+				</form>
+			</div>
+		</div>
+	</body>
+
+</html>

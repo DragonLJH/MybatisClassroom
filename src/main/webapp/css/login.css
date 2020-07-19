@@ -1,0 +1,35 @@
+html,
+body {
+	height: 100%;
+	/* background-image: url(../img/login-background-img4.jpg); */
+	background-color: #2AABD2;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	font-size: 18px;
+}
+
+.container {
+	height: 100%;
+}
+
+.container>.contant>.float {
+	background-color: #fff;
+	color: #000;
+	margin-top: 50px;
+}
+
+#Login>.loginTitle>.title>h2 {
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+
+#Register>.loginTitle>.title>h2 {
+	padding-top: 42px;
+	padding-bottom: 30px;
+}
+
+
+.form-group{
+	margin: 30px 0px;
+}

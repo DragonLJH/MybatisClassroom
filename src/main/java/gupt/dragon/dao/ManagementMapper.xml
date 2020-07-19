@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="gupt.dragon.dao.ManagementMapper">
+	
+	<select id="selectAllByDate" resultType="management" parameterType="String">
+		select  date,mor,reserve,projectname,projectmanager,remark,classroom from management where date like #{date};
+	</select>
+
+	<insert id="creationManagement" parameterType="management">
+		insert into management (date,mor,reserve,projectname,projectmanager,remark,classroom) 
+			values (#{date},#{mor},#{reserve},#{projectName},#{projectManager},#{remark},#{classroom}) ;
+	</insert>
+  
+  	<update id="updateManagement" parameterType="management">
+  		update management set reserve = #{reserve},projectname = #{projectName},
+  				projectmanager = #{projectManager},remark = #{remark}  where date = #{date} and mor = #{mor} and classroom = #{classroom};
+  	</update>
+  
+</mapper>

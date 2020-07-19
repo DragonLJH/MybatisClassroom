@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>课室预定系统</title>
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+<script src="jquery/jquery-1.11.0.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" href="fa47/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="icon" href="img/icon-logo.jpg">
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/xlsx.full.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="header">
+			<nav class="navbar navbar-inverse">
+				<div class="navbar-header">
+					<a class="navbar-brand" href=" ">课室预定系统</a>
+				</div>
+
+				<div class="navbar-right" style="margin-right: 15px;">
+					<ul class="nav navbar-nav navbar-right">
+						<!-- <li><a href="reset.html"> 重置密码</a></li> -->
+						<li><a href="update.html">修改密码</a></li>
+						<li><a href="DeleteUser">退出系统</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#batch">
+		  批量导入
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="batch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">批量导入</h4>
+					</div>
+						<div class="modal-body">
+							<input type="file" id="sendfile" />
+						</div>
+						<div class="modal-footer">
+							<button id="submitBatch" type="button" class="btn btn-primary"  >submit</button>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<!--显示当前年月-->
+			<h3></h3>
+			<!-- 选择年月查看课室预定信息 -->
+			<div class="form" style="margin: 20px 0px;">
+				<form action="javascript:void(0)" >
+					<input type="month" name="date" id="date" value=""
+						style="padding: 10px;" /> <input class="btn btn-default btn-lg"
+						type="submit" value="查询" />
+				</form>
+			</div>
+			<!-- 显示某年某月详细预定信息 -->
+			<table id="table" class="table table-bordered">
+				<tr class="active">
+					<td>日期</td>
+					<td>第一课室</td>
+					<td>第二课室</td>
+					<td>第三课室</td>
+					<td>第四课室</td>
+					<td>第五课室</td>
+					<td>会议室</td>
+				</tr>
+				<tr class="active" >
+				  <td></td>
+				  <td><div>上午</div><div>下午</div></td>
+				  <td><div>上午</div><div>下午</div></td>
+				  <td><div>上午</div><div>下午</div></td>
+				  <td><div>上午</div><div>下午</div></td>
+				  <td><div>上午</div><div>下午</div></td>
+				  <td><div>上午</div><div>下午</div></td>
+				 </tr>
+			</table>
+		</div>
+	</div>
+	<!-- 模态框 -->
+	<div>
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">预定信息</h4>
+					</div>
+					<!-- 预定详细信息 -->
+					<div class="modal-body">
+						<div class="message">
+							<div class="title row" style="display: none">
+								 <span class="col-md-2">日期</span><span class="col-md-1">上下午</span>
+								<span class="col-md-1">预订人</span><span class="col-md-4">项目名称</span>
+								<span class="col-md-1">项目经理</span><span class="col-md-1">课室</span>
+								<span class="col-md-2">备注</span>
+							</div>
+							<div class="body row"></div>
+						</div>
+						<form id="changeForm" action="management" method="post">
+							<input type="month" name="date" id="date" value=""
+								style="display: none;" /> <input type="text" name="day"
+								id="day" value="" style="display: none;" /> <input type="text"
+								name="classroom" id="classroom" value="" style="display: none;" />
+							<table align="center">
+								<tr>
+									<td><div style="margin: 10px;">时间：</div></td>
+									<td><input class="form-control" name="mor" id="mor"
+										type="text" value=""></td>
+								</tr>
+								<tr>
+									<td><div style="margin: 10px;">预定人：</div></td>
+									<td><input type="text" class="form-control"
+										name="reservationPerson" id="reservationPerson"
+										placeholder="请输入预定人"></td>
+								</tr>
+								<tr>
+									<td><div style="margin: 10px;">项目名称：</div></td>
+									<td><input type="text" class="form-control"
+										name="projectName" id="projectName" placeholder="请输入项目名称"></td>
+								</tr>
+								<tr>
+									<td><div style="margin: 10px;">项目经理：</div></td>
+									<td><input type="text" class="form-control"
+										name="projectManager" id="projectManager"
+										placeholder="请输入项目经理"></td>
+								</tr>
+								<tr>
+									<td><div style="margin: 10px;">备注：</div></td>
+									<td><textarea name="remarks" clos="100" rows="5"
+											warp="virtual" placeholder="请输入备注信息"></textarea></td>
+								</tr>
+							</table>
+						</from>
+					</div>
+					<div class="modal-footer">
+						<button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button id="power" type="submit" class="btn btn-primary">提交</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
